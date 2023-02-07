@@ -1,0 +1,51 @@
+.BusinessCustom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif, 'SF Pro';
+
+  &__main-wrapper {
+    max-width: 1180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 24px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 64px;
+    line-height: 83px;
+    color: #1A0745;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 18px;
+    line-height: 28px;
+    color: #5F517D;
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 900px) {
+  .BusinessCustom {
+    &__main-wrapper {
+      max-width: 90%;
+    }
+
+    &__title {
+      font-size: 44px;
+      line-height: 53px;
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 90%;
+    }
+  }
+}

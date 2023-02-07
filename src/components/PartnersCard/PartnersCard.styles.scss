@@ -1,0 +1,81 @@
+.PartnersCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 240px;
+  padding: 8px;
+  border: 2px #E8E6EC solid;
+  border-radius: 12px;
+
+  &--active {
+    border: 2px #9D71FD solid;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__logo {
+    width: 48px;
+    height: 48px;
+    background-color: #5F517D;
+    border-radius: 12px;
+    margin: 8px;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  &__subtitle {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  &__handler {
+    display: flex;
+    align-items: center;
+  }
+}
+
+//checkbox styling, default library styles overwriting, !important must have
+
+.PartnersCard__checkbox.react-toggle{
+  .react-toggle-track {
+    width: 22px;
+    height: 13px;
+    background-color: #ffffff !important;
+    border: 3px #A39CB5 solid;
+  }
+
+  .react-toggle-thumb {
+    width: 8px;
+    height: 8px;
+    top: calc(50% - 4px);
+    border: none;
+    box-shadow: none !important;
+    left: 5px;
+    background-color: #A39CB5;
+  }
+}
+
+.PartnersCard__checkbox.react-toggle--checked {
+  .react-toggle-track {
+    border: 3px #9D71FD solid;
+    background-color: #9D71FD !important;
+  }
+
+  .react-toggle-thumb {
+    left: 15px;
+    background-color: #ffffff;
+  }
+}

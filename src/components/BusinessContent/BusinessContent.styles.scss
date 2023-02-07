@@ -1,0 +1,136 @@
+.BusinessContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+  color: #1A0745;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__main-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F2EFFE;
+    border: 2px #9D71FD solid;
+    border-radius: 12px;
+    max-width: 35%;
+    min-width: 0;
+  }
+
+  &__main-logo {
+    width: 86px;
+    height: 86px;
+    background-color: black;
+    border-radius: 12px;
+    margin-top: -30px;
+  }
+
+  &__title {
+    margin-top: 14px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  &__description {
+    text-align: center;
+    max-width: 80%;
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  &__typeButton {
+    cursor: pointer;
+    min-width: 150px;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 12px;
+    background-color: white;
+    border: 2px #E8E6EC solid;
+    color: #543E81;
+    font-weight: 700;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__typeButton--active {
+    background-color: #9D71FD;
+    border: 2px #9D71FD solid;
+    color: white;
+  }
+
+  &__cards-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & > div {
+      margin-top: 20px;
+    }
+  }
+
+  &__partner-card-wrapper {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .BusinessContent {
+    &__content-wrapper {
+      flex-direction: column;
+    }
+
+    &__header {
+      margin-bottom: 70px;
+      max-width: 100vw;
+      overflow: scroll;
+      justify-content: flex-start;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__typeButton {
+      margin: 0 5px;
+    }
+
+    &__main-content {
+      max-width: 100%;
+      margin: 0 12px;
+    }
+
+    &__cards-group {
+      align-items: center;
+    }
+
+    #middle-group{
+      order:1;
+    }
+    #left-group{
+      order:2;
+    }
+    #right-group{
+      order:3;
+    }
+  }
+}
+
