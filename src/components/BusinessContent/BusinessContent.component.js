@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { usePrevious } from '../../hooks/customHooks';
 import { ConnectProvider, Connect } from 'react-connect-lines';
 import PartnersCard from "../PartnersCard/PartnersCard.component";
 
@@ -11,20 +12,27 @@ const businessTypes = {
 };
 
 const partnersCollection = [
-  {title: "Sapling", subtitle: "HR Management", group: 1, type: businessTypes.enter, id: "partner-Sapling"},
-  {title: "Workday", subtitle: "HR Management", group: 1, type: businessTypes.enter, id: "partner-Workday"},
-  {title: "Xero", subtitle: "Employers Base", group: 1, type: businessTypes.enter, id: "partner-Xero"},
-  {title: "Rippling", subtitle: "Salary Management", group: 2, type: businessTypes.med, id: "partner-Rippling"},
-  {title: "Expensify", subtitle: "HR Management", group: 2, type: businessTypes.med, id: "partner-Expensify"},
-  {title: "Zenefits", subtitle: "HR Management", group: 2, type: businessTypes.small, id: "partner-Zenefits"},
+  {title: "Sapling", subtitle: "HR Management", group: 1, id: "partner-Sapling"},
+  {title: "Workday", subtitle: "HR Management", group: 1, id: "partner-Workday"},
+  {title: "Xero", subtitle: "Employers Base", group: 1, id: "partner-Xero"},
+  {title: "Rippling", subtitle: "Salary Management", group: 2, id: "partner-Rippling"},
+  {title: "Expensify", subtitle: "HR Management", group: 2, id: "partner-Expensify"},
+  {title: "Zenefits", subtitle: "HR Management", group: 2, id: "partner-Zenefits"},
 ];
 
 const BusinessContent = () => {
   const windowSizeForLines = 950;
+  const [isLinesShown, setIsLinesShown] = useState(window.innerWidth > windowSizeForLines);
 
   const [activeType, setActiveType] = useState(businessTypes.small);
-  const [activePartners, setActivePartners] = useState([]);
-  const [isLinesShown, setIsLinesShown] = useState(window.innerWidth > windowSizeForLines);
+  const prevType = usePrevious(activeType);
+
+  const [businessPartners, setBusinessPartners] = useState({
+    [businessTypes.small]: ["partner-Zenefits"],
+    [businessTypes.med]: ["partner-Expensify", "partner-Rippling"],
+    [businessTypes.enter]: ["partner-Xero", "partner-Workday", "partner-Sapling"],
+  });
+  const [activePartners, setActivePartners] = useState(businessPartners[activeType]);
 
   const lineColor = (id) => activePartners.includes(id) ? "#9D71FD" : "#D7CFFD";
 
@@ -70,11 +78,12 @@ const BusinessContent = () => {
   }, []);
 
   useEffect(() => {
-    const initialPartners = partnersCollection
-      .filter((partner) => partner.type === activeType)
-      .map((partner) => partner.id);
+    setActivePartners(businessPartners[activeType]);
 
-    setActivePartners(initialPartners);
+    setBusinessPartners({
+      ...businessPartners,
+      [prevType]: activePartners
+    })
   }, [activeType]);
 
   return(
