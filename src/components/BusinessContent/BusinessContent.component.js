@@ -103,7 +103,7 @@ const BusinessContent = () => {
               <div className="BusinessContent__title">Lauren Robson</div>
               <div className="BusinessContent__subtitle">HR Director</div>
               <div className="BusinessContent__description">
-                “I want to lower PTO liability and keep my employess happy. I want to lower PTO liability.”
+                “I want to lower PTO liability and keep my employees happy. I want to lower PTO liability.”
               </div>
             </div>
           </Connect>
