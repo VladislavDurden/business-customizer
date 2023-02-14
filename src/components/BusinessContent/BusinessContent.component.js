@@ -79,12 +79,14 @@ const BusinessContent = () => {
 
   useEffect(() => {
     setActivePartners(businessPartners[activeType]);
+  }, [activeType, businessPartners]);
 
+  useEffect(() => {
     setBusinessPartners({
       ...businessPartners,
       [prevType]: activePartners
-    })
-  }, [activeType]);
+    });
+  }, [prevType, businessPartners, activePartners])
 
   return(
     <ConnectProvider>
