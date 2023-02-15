@@ -27,6 +27,7 @@ const BusinessContent = () => {
   const [activeType, setActiveType] = useState(businessTypes.small);
   const prevType = usePrevious(activeType);
 
+  //default partners for different business types
   const [businessPartners, setBusinessPartners] = useState({
     [businessTypes.small]: ["partner-Zenefits"],
     [businessTypes.med]: ["partner-Expensify", "partner-Rippling"],
