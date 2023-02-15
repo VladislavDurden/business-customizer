@@ -73,14 +73,17 @@ const BusinessContent = () => {
       </Connect>);
   };
 
+  // toggle lines to partners when screen changed
   useEffect(() => {
     window.onresize = () => setIsLinesShown(window.innerWidth > windowSizeForLines);
   }, []);
 
+  // set actual cards when type of business changed
   useEffect(() => {
     setActivePartners(businessPartners[activeType]);
   }, [activeType, businessPartners]);
 
+  // set partners for prev business when changed to prevent data loss
   useEffect(() => {
     setBusinessPartners({
       ...businessPartners,
